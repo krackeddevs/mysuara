@@ -6,14 +6,11 @@ import { Card } from "@/components/ui/card";
 import {
   Conversation,
   ConversationContent,
-  ConversationEmptyState,
   ConversationScrollButton,
 } from "@/components/ui/conversation";
 import { Message, MessageContent } from "@/components/ui/message";
-import { Orb } from "@/components/ui/orb";
 import { Response } from "@/components/ui/response";
-import { ShimmeringText } from "@/components/ui/shimmering-text";
-import { StaticWaveform, Waveform } from "../waveform";
+import { StaticWaveform } from "../waveform";
 
 const allMessages = [
   {
@@ -231,8 +228,8 @@ const ConversationDemo = () => {
   }, []);
 
   return (
-    <Card className="absolute overflow-hidden transparent mx-auto my-0 size-full h-[400px] py-0">
-      <div className="flex h-full flex-col overflow-hidden">
+    <Card className="mx-auto my-0 h-full max-h-[320px] w-full overflow-hidden border-none bg-transparent py-0 shadow-none">
+      <div className="flex flex-col overflow-hidden">
         <Conversation className="overflow-hidden">
           <ConversationContent className="overflow-hidden">
             <>

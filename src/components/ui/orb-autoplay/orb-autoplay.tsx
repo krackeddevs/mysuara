@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useEffect } from "react";
-import styles from "../../../app/page.module.css";
 
 export default function OrbAutoPlay() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,7 +22,7 @@ export default function OrbAutoPlay() {
       autoPlay
       playsInline
       preload="auto"
-      className={`${styles.orbVideo} rounded-[999px]`}
+      className="pointer-events-none absolute h-auto w-[116%] max-w-none rounded-full mix-blend-screen opacity-95 filter saturate-[1.4] contrast-[1.1] brightness-[1.1]"
     />
   );
 }
