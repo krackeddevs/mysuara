@@ -6,10 +6,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navItems = [
+  { href: "/", label: "How it works" },
   { href: "/about", label: "About" },
   { href: "/features", label: "Features" },
   { href: "/roadmap", label: "Roadmap" },
-  { href: "/#how", label: "How it works" },
 ];
 
 const ContactIcon = () => (
