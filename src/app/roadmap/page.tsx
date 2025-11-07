@@ -1,10 +1,23 @@
-const roadmapQuarters = [
+import Image from "next/image";
+import Link from "next/link";
+
+import { AnimatedSection } from "@/components/animated-section";
+import { GridPattern } from "@/components/ui/shadcn-io/grid-pattern";
+import { StaticWaveform } from "@/components/ui/waveform";
+
+const heroHighlights = [
+  "Co-created with ministries, NGOs, and enterprises across Malaysia",
+  "Dialects, accessibility, and security tracked every quarter",
+  "RapidScreen intelligence keeps feedback loops continuously learning",
+];
+
+const roadmapPhases = [
   {
     period: "Q1 2025",
     focus: "Dialects & Coverage",
     items: [
       "Expand Sabah & Sarawak dialect models with community recordings",
-      "Launch Malay-English code-switching boosters across all channels",
+      "Launch Malay–English code-switching boosters across channels",
       "Publish accessibility scorecards for inclusive design partners",
     ],
   },
@@ -14,7 +27,7 @@ const roadmapQuarters = [
     items: [
       "Release live-ops incident automation for government hotlines",
       "Introduce anonymised benchmarking dashboards for NGOs",
-      "Gain ISO/IEC 27001 readiness through external security audit",
+      "Complete ISO/IEC 27001 readiness via external audit",
     ],
   },
   {
@@ -37,82 +50,219 @@ const roadmapQuarters = [
   },
 ];
 
-const milestoneThemes = [
+const milestoneTimeline = [
+  {
+    label: "Phase 01",
+    title: "Inclusive Coverage",
+    description:
+      "Co-develop dialect and accessibility releases with regional councils, ensuring inclusive experiences nationwide.",
+    icon: "/assets/icon-globe.svg",
+    accent: "from-[#2563eb1a] via-[#60a5fa1f] to-transparent",
+  },
+  {
+    label: "Phase 02",
+    title: "Operational Mastery",
+    description:
+      "Automate live operations, elevate QA, and deliver visibility across ministries, enterprises, and contact centres.",
+    icon: "/assets/icon-phone.svg",
+    accent: "from-[#1d4ed81a] via-[#93c5fd22] to-transparent",
+  },
+  {
+    label: "Phase 03",
+    title: "Open Ecosystem",
+    description:
+      "Launch developer kits, integrations, and co-innovation programmes so partners can extend Suara everywhere.",
+    icon: "/assets/chatgpt.png",
+    accent: "from-[#3b82f61a] via-[#60a5fa22] to-transparent",
+  },
+  {
+    label: "Phase 04",
+    title: "Measured Impact",
+    description:
+      "Publish dashboards, policy scorecards, and transparency reports tying every release to measurable outcomes.",
+    icon: "/assets/file.svg",
+    accent: "from-[#0f172a1a] via-[#2563eb1f] to-transparent",
+  },
+];
+
+const guidingPrinciples = [
   {
     title: "Community First",
     description:
-      "Every roadmap milestone includes field testing with community organisations to ensure features address real needs and respect cultural nuance.",
+      "Field testing happens alongside community organisations, ensuring launches respect cultural nuance and accessibility needs.",
   },
   {
-    title: "Co-Build with Partners",
+    title: "Co-build with Partners",
     description:
-      "We invite ministries, NGOs, and enterprises into product councils, allowing shared prioritisation and co-ownership of new capabilities.",
+      "Product councils, roadmap summits, and RapidScreen data rooms keep ministries, NGOs, and enterprises in the driver’s seat.",
   },
   {
     title: "Transparent Progress",
     description:
-      "Quarterly updates highlight what shipped, what shifted, and what’s next, so stakeholders stay informed and confident in our direction.",
+      "Quarterly releases publish what shipped, what shifted, and what’s next—grounded in data your teams can trust.",
+  },
+];
+
+const partnerProgrammes = [
+  {
+    title: "Roadmap Council",
+    description:
+      "Bi-monthly working group aligning priorities across ministries, GLCs, NGOs, and private sector innovators.",
+  },
+  {
+    title: "Dialect Labs",
+    description:
+      "Community-led recording drives, annotation sprints, and inclusive design reviews for Malaysia’s diverse voices.",
+  },
+  {
+    title: "Security Forum",
+    description:
+      "Joint taskforce with InfoSec leads to pressure-test releases and maintain sovereign-grade governance.",
   },
 ];
 
 const engagementSteps = [
   {
-    heading: "Share your priorities",
-    text: "Tell us which journeys matter most—public safety, healthcare, digital inclusion, or others. We align the backlog with collective needs.",
+    heading: "Share priorities",
+    text: "Highlight journeys that matter—public safety, healthcare, inclusion. We calibrate the backlog together.",
   },
   {
     heading: "Co-design pilots",
-    text: "Work shoulder-to-shoulder with Suara practitioners to prototype workflows, test language models, and validate success metrics.",
+    text: "Prototype workflows with Suara practitioners, test dialect performance, and validate compliance criteria.",
   },
   {
     heading: "Measure outcomes",
-    text: "Track improvements against baseline KPIs and report impact to funders, constituents, and leadership teams.",
+    text: "Track ROI, service improvements, and policy wins with RapidScreen analytics and quarterly briefings.",
   },
+  {
+    heading: "Scale nationally",
+    text: "Graduate pilots into sovereign infrastructure and community programmes with shared success scorecards.",
+  },
+];
+
+const metrics = [
+  { value: "12", label: "Partner councils guiding quarterly releases" },
+  { value: "68%", label: "Average automation lift across pilot journeys" },
+  { value: "16 regions", label: "Dialect coverage targeted by year end" },
 ];
 
 export default function RoadmapPage() {
   return (
-    <main className="min-h-[calc(100vh-80px)] w-full bg-[#f3f6ff] text-[#0f172a]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-28 pt-28 sm:px-6 lg:px-10">
-        <section className="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-[#e7f0ff] via-white to-[#cfddff] px-8 py-20 text-center shadow-[0_32px_96px_rgba(15,23,42,0.12)] sm:px-14">
-          <div className="relative mx-auto flex max-w-3xl flex-col gap-5">
-            <span className="mx-auto inline-flex items-center rounded-full border border-white/70 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#2563eb]">
-              Product Roadmap
-            </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-              Building the national voice AI infrastructure together.
-            </h1>
-            <p className="text-lg leading-relaxed text-[#1f2937]">
-              This roadmap stays fluid, grounded in community input and partner collaboration. It shows how Suara evolves to bridge every voice to meaningful action.
-            </p>
+    <main className="min-h-[calc(100vh-80px)] w-full bg-[var(--bg)] text-[var(--ink)]">
+      <div className="relative isolate mx-auto flex w-full max-w-7xl flex-col gap-20 px-4 pb-28 pt-24 sm:px-6 lg:px-10">
+        <AnimatedSection className="relative isolate overflow-hidden rounded-[36px] border border-[#2563eb1a] bg-gradient-to-br from-[#eef3ff] via-white to-[#dbe8ff] px-6 py-16 shadow-[0_32px_88px_rgba(4,9,20,0.12)] sm:px-10 lg:px-16">
+          <div className="absolute inset-0 opacity-60">
+            <GridPattern width={64} height={64} className="[mask-image:linear-gradient(to_bottom_right,transparent,rgba(37,99,235,0.18),rgba(37,99,235,0.12))]" />
           </div>
-        </section>
+          <div className="relative flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-xl space-y-6">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#2563eb24] bg-[#2563eb12] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#1d4ed8]">
+                Product Roadmap
+              </span>
+              <h1 className="text-[clamp(38px,5vw,64px)] font-semibold leading-[1.05] text-[var(--ink)]">
+                Building Malaysia’s sovereign voice infrastructure together.
+              </h1>
+              <p className="text-lg leading-relaxed text-[var(--muted)]">
+                Every milestone is co-designed with councils, community partners, and enterprises so Suara delivers inclusive voice automation that Malaysia can trust.
+              </p>
+              <ul className="grid gap-2 text-sm text-[#1d3350]">
+                {heroHighlights.map((highlight) => (
+                  <li key={highlight} className="inline-flex items-start gap-3 rounded-[18px] bg-white/70 px-4 py-3 text-left shadow-[0_12px_28px_rgba(4,9,20,0.04)] backdrop-blur">
+                    <span className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-[#2563eb]" aria-hidden />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#2563eb] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-white shadow-[0_18px_42px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1d4ed8]"
+                >
+                  Join The Council
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#2563eb2e] bg-white/80 px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#1d4ed8] shadow-[0_14px_32px_rgba(37,99,235,0.14)] transition hover:-translate-y-0.5"
+                >
+                  Explore Vision
+                </Link>
+              </div>
+            </div>
 
-        <section className="rounded-3xl bg-white px-6 py-12 shadow-[0_28px_72px_rgba(15,23,42,0.1)] sm:px-12">
+            <div className="relative mx-auto grid w-full max-w-[360px] place-items-center">
+              <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-[#60a5fa33] via-[#1d4ed824] to-[#93c5fd48] blur-3xl" aria-hidden />
+              <div className="relative w-full overflow-hidden rounded-[40px] border border-white/40 bg-white/70 shadow-[0_26px_64px_rgba(37,99,235,0.24)] backdrop-blur">
+                <div className="absolute inset-0 opacity-35">
+                  <GridPattern width={48} height={48} className="text-[#1d4ed8]" />
+                </div>
+                <div className="relative flex h-full flex-col gap-6 px-10 py-12 text-center">
+                  <span className="inline-flex justify-center text-xs font-semibold uppercase tracking-[0.32em] text-[#1d4ed8]/70">
+                    Quarter Pulse
+                  </span>
+                  <div className="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_18px_40px_rgba(37,99,235,0.22)]">
+                    <StaticWaveform height={96} barWidth={9} barGap={7} barColor="#2563eb" fadeEdges className="w-full" />
+                  </div>
+                  <div className="grid gap-3 text-left text-xs text-[#1d3350b3]">
+                    <div className="flex items-center justify-between rounded-2xl bg-[#2563eb10] px-4 py-3">
+                      <span className="font-semibold text-[#1d4ed8]">Q2 · Operational Excellence</span>
+                      <span>On Track · 88%</span>
+                    </div>
+                    <div className="flex items-center justify-between rounded-2xl border border-[#2563eb1f] bg-white/70 px-4 py-3">
+                      <span className="font-semibold text-[#1d3350]">Q3 · Ecosystem & Integrations</span>
+                      <span>In Review · 62%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {metrics.map((metric) => (
+              <article
+                key={metric.label}
+                className="rounded-2xl border border-[#2563eb1a] bg-white/80 p-6 text-left shadow-[0_18px_40px_rgba(4,9,20,0.08)] backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_24px_54px_rgba(4,9,20,0.12)]"
+              >
+                <p className="text-[clamp(26px,3vw,34px)] font-semibold text-[#1d4ed8]">{metric.value}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#1d3350b3]">{metric.label}</p>
+              </article>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection
+          delay={0.12}
+          className="space-y-12 rounded-[34px] border border-[#2563eb12] bg-white px-6 py-16 shadow-[0_26px_70px_rgba(4,9,20,0.1)] sm:px-10"
+        >
           <header className="mx-auto max-w-3xl space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-[#0f172a] sm:text-4xl">2025 Milestones</h2>
-            <p className="text-base leading-relaxed text-[#1f2937]">
-              Each quarter focuses on a distinct pillar: language coverage, operational excellence, ecosystem growth, and transparent impact.
+            <span className="inline-flex items-center justify-center rounded-full bg-[#2563eb12] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+              Quarterly Milestones
+            </span>
+            <h2 className="text-[clamp(30px,3vw,44px)] font-semibold text-[var(--ink)]">
+              2025 roadmap anchored on four nationwide missions.
+            </h2>
+            <p className="text-base text-[#1d3350b3]">
+              Each quarter advances dialect coverage, operational excellence, ecosystem reach, and measurable impact.
             </p>
           </header>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {roadmapQuarters.map((quarter) => (
+          <div className="grid gap-6 sm:grid-cols-2">
+            {roadmapPhases.map((quarter, index) => (
               <article
                 key={quarter.period}
-                className="flex h-full flex-col gap-4 rounded-2xl border border-[#d7e3ff] bg-white/95 p-6 text-left shadow-[0_22px_60px_rgba(15,23,42,0.1)]"
+                className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-[28px] border border-[#2563eb1a] bg-white p-7 shadow-[0_24px_60px_rgba(4,9,20,0.08)] transition hover:-translate-y-1 hover:shadow-[0_30px_72px_rgba(4,9,20,0.12)]"
               >
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2563eb]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb14] via-transparent to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden />
+                <div className="relative flex items-center justify-between">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#2563eb12] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1d4ed8]">
                     {quarter.period}
                   </span>
-                  <h3 className="mt-2 text-xl font-semibold text-[#102240]">
-                    {quarter.focus}
-                  </h3>
+                  <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#1d3350b3]">Phase {index + 1}</span>
                 </div>
-                <ul className="space-y-3 text-sm leading-relaxed text-[#1f2f4a]">
+                <h3 className="relative text-xl font-semibold text-[var(--ink)]">{quarter.focus}</h3>
+                <ul className="relative space-y-3 text-sm text-[#1d3350b3]">
                   {quarter.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-[6px] inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-[#2563eb]" aria-hidden />
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-[#2563eb]" aria-hidden />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -120,66 +270,166 @@ export default function RoadmapPage() {
               </article>
             ))}
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="rounded-3xl bg-white px-6 py-12 shadow-[0_24px_64px_rgba(15,23,42,0.08)] sm:px-12">
-          <div className="mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-5">
-              <h2 className="text-3xl font-semibold text-[#0f172a] sm:text-4xl">Guiding Themes</h2>
-              <p className="text-base leading-relaxed text-[#1f2937]">
-                We keep the roadmap adaptable, but these principles stay constant so progress remains equitable and impactful.
+        <AnimatedSection
+          delay={0.2}
+          className="relative isolate overflow-hidden rounded-[34px] border border-[#2563eb1a] bg-white px-6 py-16 shadow-[0_28px_72px_rgba(4,9,20,0.12)] sm:px-10"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.12),_transparent_52%)] opacity-70" aria-hidden />
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+            <div className="space-y-6">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#2563eb12] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+                Milestone Journey
+              </span>
+              <h2 className="text-[clamp(30px,3vw,44px)] font-semibold leading-[1.12] text-[var(--ink)]">
+                A phased plan that scales from dialect coverage to measurable outcomes.
+              </h2>
+              <p className="text-base leading-relaxed text-[#1d3350b3]">
+                Each phase spans multiple releases, pilot cohorts, and audit cycles so partners can adopt confidently at national scale.
               </p>
             </div>
-            <div className="grid gap-5">
-              {milestoneThemes.map((theme) => (
-                <article
-                  key={theme.title}
-                  className="rounded-2xl border border-[#d7e3ff] bg-[#f7faff] p-6 shadow-[0_18px_44px_rgba(15,23,42,0.08)]"
-                >
-                  <h3 className="text-lg font-semibold text-[#102240]">{theme.title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-[#1f2f4a]">{theme.description}</p>
+            <div className="grid gap-6">
+              {milestoneTimeline.map((phase) => (
+                <article key={phase.title} className="group relative flex gap-5 rounded-[28px] border border-[#2563eb1a] bg-white/90 p-6 shadow-[0_22px_54px_rgba(4,9,20,0.08)] backdrop-blur">
+                  <div className={`relative grid h-20 w-20 place-items-center overflow-hidden rounded-2xl bg-gradient-to-br ${phase.accent} border border-[#2563eb1a]`}>
+                    <Image src={phase.icon} alt={phase.title} width={40} height={40} className="opacity-90" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2563eb80]">{phase.label}</span>
+                    <h3 className="text-lg font-semibold text-[var(--ink)]">{phase.title}</h3>
+                    <p className="text-sm leading-relaxed text-[#1d3350b3]">{phase.description}</p>
+                  </div>
                 </article>
               ))}
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="rounded-3xl bg-white px-6 py-12 shadow-[0_24px_64px_rgba(15,23,42,0.08)] sm:px-12">
-          <header className="mx-auto max-w-3xl space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-[#0f172a] sm:text-4xl">Become a Roadmap Partner</h2>
-            <p className="text-base leading-relaxed text-[#1f2937]">
-              Join the councils, pilots, and open forums that shape Suara.ai. Here’s how the collaboration works.
+        <AnimatedSection
+          delay={0.26}
+          className="grid gap-12 rounded-[34px] border border-[#2563eb12] bg-white px-6 py-16 shadow-[0_26px_70px_rgba(4,9,20,0.1)] sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+        >
+          <div className="space-y-5">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#2563eb12] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+              Guiding Principles
+            </span>
+            <h2 className="text-[clamp(30px,3vw,44px)] font-semibold text-[var(--ink)]">
+              The values that steer every roadmap decision.
+            </h2>
+            <p className="text-base leading-relaxed text-[#1d3350b3]">
+              Even when timelines flex, these principles stay constant. They help every partner trust the plan and the pace.
             </p>
-          </header>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {engagementSteps.map((step) => (
-              <article
-                key={step.heading}
-                className="flex h-full flex-col gap-3 rounded-2xl border border-[#d7e3ff] bg-white/95 p-6 text-left shadow-[0_18px_44px_rgba(15,23,42,0.08)]"
-              >
-                <h3 className="text-lg font-semibold text-[#102240]">{step.heading}</h3>
-                <p className="text-sm leading-relaxed text-[#1f2f4a]">{step.text}</p>
+          </div>
+          <div className="grid gap-6">
+            {guidingPrinciples.map((theme) => (
+              <article key={theme.title} className="rounded-[26px] border border-[#2563eb1f] bg-[#f8fbff] p-7 shadow-[0_22px_50px_rgba(4,9,20,0.08)]">
+                <h3 className="text-lg font-semibold text-[var(--ink)]">{theme.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#1d3350b3]">{theme.description}</p>
               </article>
             ))}
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section className="relative isolate overflow-hidden rounded-3xl bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#60a5fa] px-6 py-14 text-white shadow-[0_28px_80px_rgba(37,99,235,0.35)] sm:px-12">
-          <div className="relative flex flex-col gap-4 text-left sm:flex-row sm:items-center sm:justify-between">
-            <div className="max-w-xl space-y-3">
-              <h2 className="text-3xl font-semibold leading-tight">Let’s build Malaysia’s voice future.</h2>
-              <p className="text-base leading-relaxed text-white/90">
-                Invite Suara.ai into your next feedback initiative. Together we can keep the roadmap aligned with the people who rely on it most.
+        <AnimatedSection
+          delay={0.32}
+          className="space-y-12 rounded-[34px] border border-[#2563eb12] bg-white px-6 py-16 shadow-[0_26px_70px_rgba(4,9,20,0.1)] sm:px-10"
+        >
+          <header className="mx-auto max-w-3xl space-y-3 text-center">
+            <span className="inline-flex items-center justify-center rounded-full bg-[#2563eb12] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+              Partner Programmes
+            </span>
+            <h2 className="text-[clamp(30px,3vw,44px)] font-semibold text-[var(--ink)]">
+              Collaborate with us every quarter—in the field and in the cloud.
+            </h2>
+            <p className="text-base text-[#1d3350b3]">
+              Structured programmes keep your teams looped into design sprints, governance reviews, and launch playbooks.
+            </p>
+          </header>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {partnerProgrammes.map((programme) => (
+              <article
+                key={programme.title}
+                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-[26px] border border-[#2563eb1a] bg-white p-7 shadow-[0_22px_52px_rgba(4,9,20,0.08)] transition hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(4,9,20,0.12)]"
+              >
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#2563eb14] via-transparent to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden />
+                <h3 className="relative text-lg font-semibold text-[var(--ink)]">{programme.title}</h3>
+                <p className="relative text-sm leading-relaxed text-[#1d3350b3]">{programme.description}</p>
+              </article>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection
+          delay={0.38}
+          className="space-y-12 rounded-[34px] border border-[#2563eb12] bg-white px-6 py-16 shadow-[0_26px_70px_rgba(4,9,20,0.1)] sm:px-10"
+        >
+          <header className="mx-auto max-w-3xl space-y-3 text-center">
+            <span className="inline-flex items-center justify-center rounded-full bg-[#2563eb12] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+              Co-creation Flow
+            </span>
+            <h2 className="text-[clamp(30px,3vw,44px)] font-semibold text-[var(--ink)]">
+              A closed-loop playbook from insight to nationwide rollout.
+            </h2>
+            <p className="text-base text-[#1d3350b3]">
+              We align priorities, co-design solutions, measure outcomes, and scale with governance baked in.
+            </p>
+          </header>
+          <div className="relative grid gap-6 lg:grid-cols-4">
+            {engagementSteps.map((step, index) => (
+              <article
+                key={step.heading}
+                className="group relative flex h-full flex-col gap-4 rounded-[26px] border border-[#2563eb1a] bg-white p-7 shadow-[0_22px_52px_rgba(4,9,20,0.08)] transition hover:-translate-y-1 hover:shadow-[0_28px_64px_rgba(4,9,20,0.12)]"
+                style={{ transitionDelay: `${index * 70}ms` }}
+              >
+                <div className="absolute left-4 top-4 text-xs font-semibold uppercase tracking-[0.3em] text-[#2563eb80]">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <h3 className="mt-8 text-lg font-semibold text-[var(--ink)]">{step.heading}</h3>
+                <p className="text-sm leading-relaxed text-[#1d3350b3]">{step.text}</p>
+                {index !== engagementSteps.length - 1 && (
+                  <span className="absolute right-[-26px] top-1/2 hidden h-[1px] w-16 -translate-y-1/2 bg-gradient-to-r from-[#2563eb33] via-[#2563eb22] to-transparent lg:block" aria-hidden />
+                )}
+              </article>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection
+          delay={0.44}
+          className="relative isolate overflow-hidden rounded-[34px] border border-[#2563eb1a] bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#3b82f6] px-6 py-16 text-white shadow-[0_32px_88px_rgba(29,78,216,0.32)] sm:px-12"
+        >
+          <div className="absolute inset-0 opacity-20">
+            <GridPattern width={52} height={52} className="text-white" />
+          </div>
+          <div className="relative flex flex-col items-start gap-8 text-left sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-xl space-y-4">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+                Ready To Collaborate
+              </span>
+              <h2 className="text-[clamp(30px,3.4vw,44px)] font-semibold leading-tight">
+                Co-build Malaysia’s voice AI roadmap with Suara.
+              </h2>
+              <p className="text-sm leading-relaxed text-white/80">
+                Invite us into your next service initiative, policy programme, or community rollout. Together we’ll design, deploy, and scale sovereign voice solutions that deliver measurable change.
               </p>
             </div>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#1d4ed8] shadow-[0_12px_32px_rgba(255,255,255,0.25)] transition hover:bg-[#f1f5ff]"
-            >
-              Contact Suara
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#1d4ed8] shadow-[0_16px_38px_rgba(255,255,255,0.24)] transition hover:-translate-y-0.5 hover:bg-[#f0f4ff]"
+              >
+                Connect With Suara
+              </Link>
+              <Link
+                href="/features"
+                className="inline-flex items-center justify-center rounded-full border border-white/70 bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition hover:-translate-y-0.5"
+              >
+                Review Platform
+              </Link>
+            </div>
           </div>
-        </section>
+        </AnimatedSection>
       </div>
     </main>
   );
