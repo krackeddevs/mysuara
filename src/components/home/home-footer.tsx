@@ -18,9 +18,9 @@ export function HomeFooter() {
             <h4 className="mb-3 font-semibold text-[#0b1323]">Resources</h4>
             <ul className="grid gap-3 text-[rgba(4,9,20,0.70)]">
               {[
-                { href: "#about", label: "About" },
-                { href: "#features", label: "Features" },
-                { href: "#how", label: "How It Works" },
+                { href: "/about", label: "About" },
+                { href: "/features", label: "Features" },
+                { href: "/", label: "How It Works" },
                 { href: "/contact", label: "Contact" },
               ].map((item) => (
                 <li key={item.href}>

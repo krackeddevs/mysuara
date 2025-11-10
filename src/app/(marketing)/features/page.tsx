@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/animated-section";
 import { GridPattern } from "@/components/ui/shadcn-io/grid-pattern";
 import { StaticWaveform } from "@/components/ui/waveform";
 import { BarVisualizer } from "@/components/ui/bar-visualizer";
+import { HomeFooter } from "@/components/home/home-footer";
 
 const heroStats = [
   {
@@ -251,7 +252,7 @@ export default function FeaturesPage() {
   return (
     <main className="min-h-[calc(100vh-80px)] w-full bg-[var(--bg)] text-[var(--ink)]">
       <div className="relative isolate mx-auto flex w-full max-w-7xl flex-col gap-20 px-4 pb-28 pt-24 sm:px-6 lg:px-10">
-        <AnimatedSection className="relative isolate overflow-hidden rounded-[36px] border border-[#2563eb1a] bg-gradient-to-br from-[#eef3ff] via-white to-[#dbe8ff] px-6 py-18 shadow-[0_32px_88px_rgba(4,9,20,0.14)] sm:px-10 lg:px-16">
+        <AnimatedSection className="relative isolate overflow-hidden rounded-[36px] border border-[#2563eb1a] bg-gradient-to-br from-[#eef3ff] via-white to-[#dbe8ff] px-6 py-16 shadow-[0_32px_88px_rgba(4,9,20,0.14)] sm:px-10 lg:px-16">
           <div className="absolute inset-0 opacity-60">
             <GridPattern
               width={64}
@@ -595,6 +596,9 @@ export default function FeaturesPage() {
             </div>
           </div>
         </section>
+        <AnimatedSection delay={0.4} className="w-full">
+          <HomeFooter />
+        </AnimatedSection>
       </div>
     </main>
   );

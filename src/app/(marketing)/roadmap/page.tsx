@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatedSection } from "@/components/animated-section";
 import { GridPattern } from "@/components/ui/shadcn-io/grid-pattern";
 import { StaticWaveform } from "@/components/ui/waveform";
+import { HomeFooter } from "@/components/home/home-footer";
 
 const heroHighlights = [
   "Co-created with ministries, NGOs, and enterprises across Malaysia",
@@ -429,6 +430,9 @@ export default function RoadmapPage() {
               </Link>
             </div>
           </div>
+        </AnimatedSection>
+        <AnimatedSection delay={0.5} className="w-full">
+          <HomeFooter />
         </AnimatedSection>
       </div>
     </main>
