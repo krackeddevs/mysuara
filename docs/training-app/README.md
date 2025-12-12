@@ -1,6 +1,6 @@
 # Suara Training landing page
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+_Automatically synced with your [v0.app](https://v0.app) deployments_
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/test7s-projects/v0-suara-training-landing-page)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/o3Z18hzAqu5)
@@ -33,14 +33,14 @@ Continue building your app on:
 
 - 🌏 Regional dialect selection for Malaysian speech training
 - 🎤 Audio recording and transcription
-- 🔐 Authentication with X (Twitter) and Google via Privy
+- 🔐 Authentication with Google via Privy
 - 🎨 Dark/Light theme support
 - 📊 Training history and points tracking
 - 🎯 Interactive step-by-step training flow
 
 ## Authentication Setup
 
-This app uses [Privy](https://privy.io) for authentication with X (Twitter) and Google login.
+This app uses [Privy](https://privy.io) for authentication with Google login.
 
 ### Quick Setup
 
@@ -51,7 +51,7 @@ This app uses [Privy](https://privy.io) for authentication with X (Twitter) and 
    ```bash
    NEXT_PUBLIC_PRIVY_APP_ID=your_privy_app_id_here
    ```
-5. Configure Google and Twitter OAuth in your Privy dashboard
+5. Configure Google OAuth in your Privy dashboard
 
 For detailed setup instructions, see [PRIVY_SETUP.md](./PRIVY_SETUP.md)
 

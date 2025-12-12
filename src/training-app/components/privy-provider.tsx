@@ -1,24 +1,26 @@
-"use client"
+"use client";
 
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
-import { PrivyProvider } from "@privy-io/react-auth"
+import { PrivyProvider } from "@privy-io/react-auth";
 
 export function Providers({ children }: { children: ReactNode }) {
-  const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID || ""
-  
+  const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID || "";
+
   // If no App ID is configured, render children without Privy
   // This allows the app to build and run without authentication
   if (!appId) {
-    console.warn("NEXT_PUBLIC_PRIVY_APP_ID is not set. Authentication will not be available.")
-    return <>{children}</>
+    console.warn(
+      "NEXT_PUBLIC_PRIVY_APP_ID is not set. Authentication will not be available."
+    );
+    return <>{children}</>;
   }
 
   return (
     <PrivyProvider
       appId={appId}
       config={{
-        loginMethods: ["google", "twitter"],
+        loginMethods: ["google"],
         appearance: {
           theme: "light",
           accentColor: "#10B981",
@@ -34,6 +36,5 @@ export function Providers({ children }: { children: ReactNode }) {
     >
       {children}
     </PrivyProvider>
-  )
+  );
 }
-
