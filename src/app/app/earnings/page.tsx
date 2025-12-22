@@ -10,6 +10,9 @@ import { Button } from "@/training-app/components/ui/button"
 import { Mic, ArrowLeft, DollarSign, TrendingUp, Calendar } from "lucide-react"
 import Link from "next/link"
 
+// Force dynamic rendering to avoid build-time errors with missing env vars
+export const dynamic = 'force-dynamic'
+
 interface Submission {
   id: string
   originalText: string
