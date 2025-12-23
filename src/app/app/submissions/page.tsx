@@ -11,6 +11,9 @@ import { Badge } from "@/training-app/components/ui/badge";
 import { ArrowLeft, Calendar, MapPin, Volume2 } from "lucide-react";
 import Link from "next/link";
 
+// Force dynamic rendering to avoid build-time errors with missing env vars
+export const dynamic = 'force-dynamic'
+
 interface Submission {
 	id: string;
 	originalText: string;
