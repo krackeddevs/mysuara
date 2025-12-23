@@ -20,7 +20,6 @@ import {
 	DialogTitle,
 } from "@/training-app/components/ui/dialog";
 import type { StoredSubmission } from "@/training-app/lib/submission-storage";
-import { Button } from "@/training-app/components/ui/button";
 import { AutoResizeTextarea } from "@/training-app/components/ui/auto-resize-textarea";
 import { Response } from "@/training-app/components/ui/response";
 import { useToast } from "@/training-app/hooks/use-toast";
@@ -312,8 +311,8 @@ export default function TrainingPage() {
 					userId,
 					storyId: currentStoryId,
 					storyTitle: currentStoryTitle,
-					originalText: originalText.substring(0, 50) + "...",
-					correctedText: correctedText.substring(0, 50) + "...",
+					originalText: `${originalText.substring(0, 50)}...`,
+					correctedText: `${correctedText.substring(0, 50)}...`,
 					hasAudio: !!audioBlob,
 					region,
 				});
@@ -435,6 +434,7 @@ export default function TrainingPage() {
 						<div className="flex items-center gap-3">
 							{/* Change Region Button */}
 							<button
+								type="button"
 								onClick={handleChangeRegion}
 								className="h-full px-4 py-3 cursor-pointer flex items-center gap-2 rounded-xl border border-slate-200 bg-white text-slate-700 shadow-md shadow-slate-200/60 transition hover:bg-slate-50"
 								title={`Change region (${region})`}
@@ -446,6 +446,8 @@ export default function TrainingPage() {
 											.replace(/\s+/g, "-")}.png`}
 										alt={`${region} flag`}
 										className="h-4 w-6 rounded-[2px] object-cover shadow-md shadow-slate-200/70"
+										decoding="async"
+										loading="lazy"
 										onError={(e) => {
 											e.currentTarget.style.display = "none";
 										}}
@@ -497,7 +499,10 @@ export default function TrainingPage() {
 											stroke="currentColor"
 											viewBox="0 0 24 24"
 											xmlns="http://www.w3.org/2000/svg"
+											role="img"
+											aria-label="Magic wand icon"
 										>
+											<title>Magic wand</title>
 											<path
 												strokeLinecap="round"
 												strokeLinejoin="round"
@@ -555,6 +560,7 @@ export default function TrainingPage() {
 														</span>
 													</div>
 													<button
+														type="button"
 														onClick={handleEdit}
 														disabled={isLoading}
 														className="cursor-pointer flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-md shadow-slate-200/60 transition-all hover:bg-slate-50 hover:scale-102 disabled:cursor-not-allowed disabled:opacity-50"
@@ -593,6 +599,7 @@ export default function TrainingPage() {
 										{step === "correction" && (
 											<div className="flex justify-center pt-4">
 												<button
+													type="button"
 													onClick={handleSubmitCorrection}
 													disabled={
 														isStreaming || isLoading || !correctedText.trim()
@@ -624,7 +631,10 @@ export default function TrainingPage() {
 													className="h-4 w-4 text-blue-500"
 													fill="currentColor"
 													viewBox="0 0 20 20"
+													role="img"
+													aria-label="Clock icon"
 												>
+													<title>Clock</title>
 													<path
 														fillRule="evenodd"
 														d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
@@ -657,6 +667,7 @@ export default function TrainingPage() {
 							{step === "audio" && (
 								<div className="mb-20 flex justify-center">
 									<button
+										type="button"
 										onClick={handleFinalSubmit}
 										disabled={isLoading || !audioBlob}
 										className="cursor-pointer flex items-center gap-2.5 rounded-lg border border-blue-100 bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-xl shadow-blue-200 transition-all duration-[400ms] hover:bg-blue-500 md:text-base disabled:cursor-not-allowed disabled:opacity-50"

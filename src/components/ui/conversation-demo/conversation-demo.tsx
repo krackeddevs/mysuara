@@ -172,7 +172,7 @@ const ConversationDemo = () => {
 	const [streamingMessageIndex, setStreamingMessageIndex] = useState<
 		number | null
 	>(null);
-	const [streamingContent, setStreamingContent] = useState("");
+	const [_streamingContent, setStreamingContent] = useState("");
 
 	useEffect(() => {
 		const timeouts: NodeJS.Timeout[] = [];
@@ -232,7 +232,7 @@ const ConversationDemo = () => {
 			<div className="flex flex-col overflow-hidden">
 				<Conversation className="overflow-hidden">
 					<ConversationContent className="overflow-hidden">
-						<>
+						
 							{messages.map((message) => (
 								<Message from={message.role} key={message.id}>
 									{message.role === "user" && (
@@ -285,7 +285,7 @@ const ConversationDemo = () => {
 									)}
 								</Message>
 							)}
-						</>
+						
 					</ConversationContent>
 					<ConversationScrollButton />
 				</Conversation>

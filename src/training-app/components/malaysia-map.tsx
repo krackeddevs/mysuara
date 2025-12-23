@@ -45,7 +45,7 @@ export function MalaysiaMap({ onSelectRegion }: MalaysiaMapProps) {
 		return () => ctx.revert();
 	}, []);
 
-	const handleStateClick = (stateId: string, stateName: string) => {
+	const handleStateClick = (stateId: string, _stateName: string) => {
 		setSelectedState(stateId);
 		gsap.to(`#marker-${stateId}`, {
 			scale: 1.3,

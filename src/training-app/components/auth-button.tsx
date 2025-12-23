@@ -47,7 +47,7 @@ function AuthButtonContent() {
 		return undefined;
 	};
 
-	const getInitials = () => {
+	const _getInitials = () => {
 		const name = getDisplayName();
 		return name
 			.split(" ")

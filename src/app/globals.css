@@ -85,7 +85,7 @@ main {
 }
 
 [role="log"] > div[style] {
-	overflow: hidden !important;
+	overflow: hidden;
 }
 
 * {

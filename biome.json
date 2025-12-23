@@ -15,7 +15,59 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"suspicious": {
+				"noUnknownAtRules": {
+					"level": "off"
+				},
+				"noArrayIndexKey": {
+					"level": "off"
+				},
+				"useIterableCallbackReturn": {
+					"level": "off"
+				},
+				"noAssignInExpressions": {
+					"level": "off"
+				},
+				"noImplicitAnyLet": {
+					"level": "off"
+				}
+			},
+			"a11y": {
+				"noSvgWithoutTitle": {
+					"level": "off"
+				},
+				"useButtonType": {
+					"level": "off"
+				},
+				"useSemanticElements": {
+					"level": "off"
+				},
+				"useAriaPropsSupportedByRole": {
+					"level": "off"
+				},
+				"noStaticElementInteractions": {
+					"level": "off"
+				},
+				"useKeyWithClickEvents": {
+					"level": "off"
+				}
+			},
+			"performance": {
+				"noImgElement": {
+					"level": "off"
+				}
+			},
+			"style": {
+				"noNonNullAssertion": {
+					"level": "off"
+				}
+			}
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
 		}
 	},
 	"javascript": {

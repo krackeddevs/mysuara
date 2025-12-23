@@ -3,7 +3,6 @@ import Image from "next/image";
 import ConversationDemo from "@/components/ui/conversation-demo/conversation-demo";
 import OrbAutoPlay from "@/components/ui/orb-autoplay/orb-autoplay";
 import { GridPattern } from "@/components/ui/shadcn-io/grid-pattern";
-import { BarVisualizer } from "@/components/ui/bar-visualizer";
 import { ScrollingWaveform, StaticWaveform } from "@/components/ui/waveform";
 import { cn } from "@/lib/utils";
 

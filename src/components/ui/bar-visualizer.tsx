@@ -61,10 +61,10 @@ export function useAudioVolume(
 	const memoizedOptions = useMemo(
 		() => options,
 		[
-			options.fftSize,
-			options.smoothingTimeConstant,
-			options.minDecibels,
-			options.maxDecibels,
+			options.fftSize, 
+			options.smoothingTimeConstant, 
+			options.minDecibels, 
+			options.maxDecibels, options
 		],
 	);
 
@@ -156,14 +156,14 @@ export function useMultibandVolume(
 	const opts = useMemo(
 		() => ({ ...multibandDefaults, ...options }),
 		[
-			options.bands,
-			options.loPass,
-			options.hiPass,
-			options.updateInterval,
-			options.analyserOptions?.fftSize,
-			options.analyserOptions?.smoothingTimeConstant,
-			options.analyserOptions?.minDecibels,
-			options.analyserOptions?.maxDecibels,
+			options.bands, 
+			options.loPass, 
+			options.hiPass, 
+			options.updateInterval, 
+			options.analyserOptions?.fftSize, 
+			options.analyserOptions?.smoothingTimeConstant, 
+			options.analyserOptions?.minDecibels, 
+			options.analyserOptions?.maxDecibels, options
 		],
 	);
 

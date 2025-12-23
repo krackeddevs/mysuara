@@ -68,7 +68,7 @@ export function FlagSwipeTransition({
 		return () => {
 			tl.kill();
 		};
-	}, [onComplete, region]);
+	}, [onComplete]);
 
 	const flagPath = `/images/flags/${region.toLowerCase().replace(/\s+/g, "-")}.png`;
 

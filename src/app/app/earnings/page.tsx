@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import type { TrainingSubmission } from "@/training-app/lib/supabase";
 
@@ -29,17 +29,7 @@ export default function EarningsPage() {
 	const lastSubmission =
 		submissions.length > 0 ? formatDate(submissions[0].submittedAt) : null;
 
-	useEffect(() => {
-		const storedUserId = localStorage.getItem("userId");
-		if (!storedUserId) {
-			router.push("/app/dashboard");
-			return;
-		}
-
-		fetchEarningsData(storedUserId);
-	}, [router]);
-
-	const fetchEarningsData = async (userId: string) => {
+	const fetchEarningsData = useCallback(async (userId: string) => {
 		try {
 			const submissionsData = await fetchUserSubmissions(userId);
 			const formatted: Submission[] = (submissionsData.submissions || []).map(
@@ -59,7 +49,17 @@ export default function EarningsPage() {
 		} finally {
 			setIsLoading(false);
 		}
-	};
+	}, []);
+
+	useEffect(() => {
+		const storedUserId = localStorage.getItem("userId");
+		if (!storedUserId) {
+			router.push("/app/dashboard");
+			return;
+		}
+
+		fetchEarningsData(storedUserId);
+	}, [router, fetchEarningsData]);
 
 	function formatDate(date: string) {
 		return new Date(date).toLocaleDateString("en-MY", {

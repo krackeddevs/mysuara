@@ -31,7 +31,7 @@ interface RegionSelectorProps {
 }
 
 export function RegionSelector({ onSelectRegion }: RegionSelectorProps) {
-	const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+	const [_selectedRegion, setSelectedRegion] = useState<string | null>(null);
 	const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
 	const handleRegionClick = (region: string) => {

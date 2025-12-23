@@ -56,7 +56,7 @@ export function AudioRecorder({
 		});
 	};
 
-	const base64ToBlob = (base64: string): Blob => {
+	const _base64ToBlob = (base64: string): Blob => {
 		const byteCharacters = atob(base64);
 		const byteNumbers = new Array(byteCharacters.length);
 		for (let i = 0; i < byteCharacters.length; i++) {

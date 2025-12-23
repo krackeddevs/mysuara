@@ -141,7 +141,7 @@ export function isStoryInBatch(storyId: number, batchNumber: number): boolean {
 export function getBatchForStory(storyId: number): number | null {
 	for (const [batchNum, range] of Object.entries(BATCH_RANGES)) {
 		if (storyId >= range.start && storyId <= range.end) {
-			return parseInt(batchNum);
+			return parseInt(batchNum, 10);
 		}
 	}
 	return null;

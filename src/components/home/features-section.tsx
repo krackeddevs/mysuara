@@ -3,7 +3,6 @@ import Image from "next/image";
 import { GridPattern } from "@/components/ui/shadcn-io/grid-pattern";
 import { BarVisualizer } from "@/components/ui/bar-visualizer";
 import { ScrollingWaveform } from "@/components/ui/waveform";
-import { StaticWaveform } from "@/components/ui/waveform";
 import { cn } from "@/lib/utils";
 
 type FeatureContentKey = "multilingual" | "stt" | "access" | "ai";

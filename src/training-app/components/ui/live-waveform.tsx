@@ -192,7 +192,7 @@ export function LiveWaveform({
 				historyRef.current.shift();
 			}
 
-			const numBars = historyRef.current.length;
+			const _numBars = historyRef.current.length;
 			const barWidthWithGap = barWidth + barGap;
 			const centerY = height / 2;
 

@@ -28,7 +28,7 @@ const isValidStory = (
 	story: TrainingStory | undefined,
 ): story is TrainingStory =>
 	Boolean(
-		story && story.content && !story.content.startsWith(PLACEHOLDER_PREFIX),
+		story?.content && !story.content.startsWith(PLACEHOLDER_PREFIX),
 	);
 
 const rawBatchEntries: Array<[number, TrainingStory[]]> = [

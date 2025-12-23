@@ -436,7 +436,7 @@ export const AudioScrubber = ({
 			document.removeEventListener("mousemove", handleMouseMove);
 			document.removeEventListener("mouseup", handleMouseUp);
 		};
-	}, [isDragging, duration, handleScrub]);
+	}, [isDragging, handleScrub]);
 
 	const heightStyle = typeof height === "number" ? `${height}px` : height;
 
@@ -581,7 +581,7 @@ export const MicrophoneWaveform = ({
 			}
 			return;
 		}
-	}, [processing, active]);
+	}, [processing, active, data.length, data.map]);
 
 	useEffect(() => {
 		if (!active) {
@@ -795,6 +795,19 @@ export const LiveMicrophoneWaveform = ({
 		return () => resizeObserver.disconnect();
 	}, []);
 
+	const processAudioBlob = useCallback(async (blob: Blob) => {
+		try {
+			const arrayBuffer = await blob.arrayBuffer();
+			if (audioContextRef.current) {
+				const audioBuffer =
+					await audioContextRef.current.decodeAudioData(arrayBuffer);
+				audioBufferRef.current = audioBuffer;
+			}
+		} catch (error) {
+			console.error("Error processing audio:", error);
+		}
+	}, []);
+
 	useEffect(() => {
 		if (!active) {
 			if (
@@ -881,27 +894,14 @@ export const LiveMicrophoneWaveform = ({
 			}
 		};
 	}, [
-		active,
-		fftSize,
-		smoothingTimeConstant,
-		onError,
-		setDragOffset,
-		enableAudioPlayback,
-		historyRef,
+		active, 
+		fftSize, 
+		smoothingTimeConstant, 
+		onError, 
+		setDragOffset, 
+		enableAudioPlayback, 
+		historyRef, processAudioBlob
 	]);
-
-	const processAudioBlob = async (blob: Blob) => {
-		try {
-			const arrayBuffer = await blob.arrayBuffer();
-			if (audioContextRef.current) {
-				const audioBuffer =
-					await audioContextRef.current.decodeAudioData(arrayBuffer);
-				audioBufferRef.current = audioBuffer;
-			}
-		} catch (error) {
-			console.error("Error processing audio:", error);
-		}
-	};
 
 	const playScrubSound = useCallback(
 		(position: number, direction: number) => {

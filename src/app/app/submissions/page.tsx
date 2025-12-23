@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import type { TrainingSubmission } from "@/training-app/lib/supabase";
 import { fetchUserSubmissions } from "@/training-app/lib/training-service";
@@ -27,17 +27,7 @@ export default function SubmissionsPage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [totalEarnings, setTotalEarnings] = useState(0);
 
-	useEffect(() => {
-		const storedUserId = localStorage.getItem("userId");
-		if (!storedUserId) {
-			router.push("/app");
-			return;
-		}
-
-		fetchSubmissions(storedUserId);
-	}, [router]);
-
-	const fetchSubmissions = async (userId: string) => {
+	const fetchSubmissions = useCallback(async (userId: string) => {
 		try {
 			const data = await fetchUserSubmissions(userId);
 			const formatted: Submission[] = (data.submissions || []).map(
@@ -58,7 +48,17 @@ export default function SubmissionsPage() {
 		} finally {
 			setIsLoading(false);
 		}
-	};
+	}, []);
+
+	useEffect(() => {
+		const storedUserId = localStorage.getItem("userId");
+		if (!storedUserId) {
+			router.push("/app");
+			return;
+		}
+
+		fetchSubmissions(storedUserId);
+	}, [router, fetchSubmissions]);
 
 	const formatDate = (dateString: string) => {
 		const date = new Date(dateString);
